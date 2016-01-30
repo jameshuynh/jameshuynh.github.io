@@ -170,3 +170,38 @@ And that's it. Here is the final demo
 We have gone through how to make an ajax pagination using standard pagination gem like Kaminari. It would be beneficial if you could extend the current implementation to cater for search and filter. I hope you find this article useful and please input your comments if you have any suggestions to make this even better :-).
 
 Last but not least, the source code of this article is made available on this github URL - [https://github.com/jameshuynh/blog-codes/tree/master/ajax-pagination-demo](https://github.com/jameshuynh/blog-codes/tree/master/ajax-pagination-demo)
+
+## 6. There are 4 Learning Points in this article
+
+##### 1. Paperclip photo can be extracted from a URL by passing a URI object into the paperclip attribute
+
+{% highlight ruby %}
+Book.create({ title: 'Customer Requirements', cover: URI.parse('https://imagery.pragprog.com/products/470/d-mbcreq_xlargecover.jpg?1445450768') })
+{% endhighlight %}
+
+##### 2. You can check if a request is an ajax request by using the code
+
+{% highlight ruby %}
+# request.xhr? will be true if it is an ajax rqeuest and nil otherwise
+request.xhr? != nil
+{% endhighlight %} 
+
+##### 3. Browser URL state can be changed by the javascript code
+
+{% highlight javascript %}
+var stateObj = { foo: "bar" };
+window.history.pushState(stateObj, "Page Title", "/new-url");
+{% endhighlight %}
+
+This will cause the URL bar to display ``http://current-domain-name.com/new-url``, but won't cause the browser to load ``/new-url`` or even check that ``/new-url`` exists.
+
+##### 4. Finally, you can hook an event into pop state event, which is when the user clicks on Back / Forward button on the browser. This would help our application load approriate URL
+
+
+{% highlight javascript %}
+$(window).bind('popstate', function(event) {
+  var url = location.href;
+  // reload HTML once user presses back / forward button
+  $("#books_container").html(loadingHTML).load(url);
+});
+{% endhighlight %}
