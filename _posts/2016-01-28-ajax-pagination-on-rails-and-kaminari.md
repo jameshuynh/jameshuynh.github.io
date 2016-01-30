@@ -56,33 +56,7 @@ end
 {% endhighlight %}
 
 
-Populate some seeds data in ``seeds.rb``
-
-{% highlight ruby %}
-[
-  { title: 'Seven Mobile Apps in Seven Weeks', cover: 'https://imagery.pragprog.com/products/445/7apps_xlargebeta.jpg?1453859078' },
-  { title: 'Serverless Single Page Apps', cover: 'https://imagery.pragprog.com/products/453/brapps_xlargebeta.jpg?1446566716' },
-  { title: 'Programming Elixir 1.2', cover: 'https://imagery.pragprog.com/products/491/elixir12_xlargebeta.jpg?1451929828' },
-  { title: 'Developing for Apple Watch, Second Edition', cover: 'https://imagery.pragprog.com/products/465/jkwatch2_xlargebeta.jpg?1449158389' },
-  { title: 'Rails, Angular, Postgres, and Bootstrap', cover: 'https://imagery.pragprog.com/products/448/dcbang_xlargecover.jpg?1437680108' },
-  { title: 'Secure Your Node.js Web Application', cover: 'https://imagery.pragprog.com/products/443/kdnodesec_xlargecover.jpg?1433877235' },
-  { title: 'Programming Phoenix', cover: 'https://imagery.pragprog.com/products/452/phoenix_xlargebeta.jpg?1441916658' },
-  { title: 'Reactive Programming with RxJS', cover: 'https://imagery.pragprog.com/products/423/smreactjs_xlargecover.jpg?1438799363' },
-  { title: 'Ruby Performance Optimization', cover: 'https://imagery.pragprog.com/products/425/adrpo_xlargecover.jpg?1427141274' },
-  { title: 'Creating Great Teams', cover: 'https://imagery.pragprog.com/products/463/mmteams_xlargecover.jpg?1438711295' },
-  { title: 'Practical Vim, Second Edition', cover: 'https://imagery.pragprog.com/products/462/dnvim2_xlargecover.jpg?1440682071' },
-  { title: 'Modern Perl, Fourth Edition', cover: 'https://imagery.pragprog.com/products/458/swperl_xlargecover.jpg?1434051662' },
-  { title: 'Deliver Audacious Web Apps with Ember 2', cover: 'https://imagery.pragprog.com/products/427/mwjsember_xlargecover.jpg?1433347051' },
-  { title: 'Text Processing with Ruby', cover: 'https://imagery.pragprog.com/products/437/rmtpruby_xlargecover.jpg?1426186414' },
-  { title: 'Pragmatic Scala', cover: 'https://imagery.pragprog.com/products/399/vsscala2_xlargecover.jpg?1442946461' },
-  { title: 'Learn Game Programming with Ruby', cover: 'https://imagery.pragprog.com/products/419/msgpkids_xlargecover.jpg?1440431060' },
-  { title: 'Exercises for Programmers', cover: 'https://imagery.pragprog.com/products/461/bhwb_xlargecover.jpg?1436545859' },
-  { title: 'Customer Requirements', cover: 'https://imagery.pragprog.com/products/470/d-mbcreq_xlargecover.jpg?1445450768' }
-].each do |book_data|
-  book = Book.new({ title: book_data[:title], cover: URI.parse(book_data[:cover]) })
-  book.save
-end
-{% endhighlight %}
+Populate some seeds data in ``seeds.rb``, which you can copy the seeds file from here [http://bit.ly/1TsNZiT](http://bit.ly/1TsNZiT){:target="_blank"}
 
 Finally, run the seed file to populate data
 
@@ -102,7 +76,7 @@ Move to ``books_controller.rb`` and add index action code:
 
 {% highlight ruby %}
 def index
-  @books = Book.page(params[:page] || 1).per(5)
+  @books = Book.page(params[:page] || 1).per(4)
 end
 {% endhighlight %}
 
@@ -124,66 +98,10 @@ Then create ``index.html.erb`` inside ``views/books``:
 </div>
 {% endhighlight %}
 
-Add a bit of style inside ``application.css``
+Add a bit of style inside ``application.css`` - which you can copy from here [http://bit.ly/1KLNpWg](http://bit.ly/1KLNpWg){:target="_blank"}
 
-{% highlight css %}
-.clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
 
-body {
-  font-family: "Hevetica", Arial;
-  font-size: 13px;
-}
-
-ul.books {
-  list-style-type: none;
-}
-
-ul.books li {
-  float: left;
-  width: 300px;
-  text-align: center;
-  margin-top: 20px;
-  color: #333;
-  font-size: 13px;
-}
-
-ul.books li img {
-  box-shadow: 0 0 5px #888;
-  margin-bottom: 10px;
-}
-
-nav.pagination {
-  text-align: center;
-  margin-top: 50px;
-  display: block;
-}
-
-nav.pagination a {
-  text-decoration: none;
-  border: 1px solid #eee;
-  color: #0d75aa;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-div.loading {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 13px;
-  color: #333;
-}
-{% endhighlight %}
+Now, if you visit [http://localhost:3000/books/index](http://localhost:3000/books/index){:target="blank"}, the normal pagination should work perfectly okay. Now we are going forwards to ajaxifying the pagination.
 
 ## 4. Convert the current pagination into Ajax Pagination
 
@@ -208,10 +126,10 @@ One more thing that we would have to change on our index action is that we would
 {% highlight ruby %}
 class BooksController < ApplicationController
   def index
-    @books = Book.page(params[:page] || 1).per(5)
-    # ajax request will result in request.xhr? to be true
+    @books = Book.page(params[:page] || 1).per(4)
+    # ajax request will result in request.xhr? not nil 
     # layout will be true if request is not an ajax request
-    render action: :index, layout: request.xhr? == false
+    render action: :index, layout: request.xhr? == nil 
   end
 end
 {% endhighlight %}
@@ -243,6 +161,9 @@ $(function() {
 });
 {% endhighlight %}
 
+And that's it. Here is the final demo
+
+<p style='text-align:center;' markdown='1'><img src='/public/gifs/ajax-pagination-demo.gif' alt="Final Demo" style='display:inline;'/></p>
 
 ## 5. Conclusion
 
