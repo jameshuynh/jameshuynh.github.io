@@ -30,7 +30,7 @@ Then generate Book Model and add cover as a paperclip attachment
 
 {% highlight bash %}
 rails g model Book title
-rails g paperclip Book cover 
+rails g paperclip Book cover
 {% endhighlight %}
 
 And run database migration
@@ -40,16 +40,15 @@ bundle exec rake db:migrate
 {% endhighlight %}
 
 Add paperclip code inside ``book.rb``
-
 {% highlight ruby %}
 class Book < ActiveRecord::Base
   has_attached_file :cover, styles: { thumb: "220x310>" }
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
-  before_post_process on: :create do    
+  before_post_process on: :create do
     if cover_content_type == 'application/octet-stream'
-      mime_type = MIME::Types.type_for(cover_file_name) 
-      self.cover_content_type = mime_type.first.to_s if mime_type.first  
+      mime_type = MIME::Types.type_for(cover_file_name)
+      self.cover_content_type = mime_type.first.to_s if mime_type.first
     end
   end
 end
@@ -127,14 +126,14 @@ One more thing that we would have to change on our index action is that we would
 class BooksController < ApplicationController
   def index
     @books = Book.page(params[:page] || 1).per(4)
-    # ajax request will result in request.xhr? not nil 
+    # ajax request will result in request.xhr? not nil
     # layout will be true if request is not an ajax request
-    render action: :index, layout: request.xhr? == nil 
+    render action: :index, layout: request.xhr? == nil
   end
 end
 {% endhighlight %}
 
-Up to this point, our Ajax pagination has been successfully implemented. However, there is one small glitch that we would tend to over look, which is the URL of the page when user clicks over a page. Currently, it would remain the same. 
+Up to this point, our Ajax pagination has been successfully implemented. However, there is one small glitch that we would tend to over look, which is the URL of the page when user clicks over a page. Currently, it would remain the same.
 
 For instance, if you are on page 1, your URL would be ``http://localhost:3000/books/index?page=1``. Now, if a user clicks on page 2, because of the Ajax nature, the content would be changed to content of page 2, but the URL would still be ``http://localhost:3000/books/index?page=1``. In order to fix that, we would need to change the earlier js by adding the history of the page
 
@@ -184,7 +183,7 @@ Book.create({ title: 'Customer Requirements', cover: URI.parse('https://imagery.
 {% highlight ruby %}
 # request.xhr? will be true if it is an ajax rqeuest and nil otherwise
 request.xhr? != nil
-{% endhighlight %} 
+{% endhighlight %}
 
 ##### 3. Browser URL state can be changed by the javascript code
 

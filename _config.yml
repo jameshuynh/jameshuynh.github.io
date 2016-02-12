@@ -13,11 +13,12 @@ paginate:            5
 
 # About/contact
 author:
-  name:              James Huynh 
+  name:              James Huynh
   url:               https://twitter.com/jameshu
-  email:             jameshuynhsg@gmail.com 
+  email:             jameshuynhsg@gmail.com
 
 # Custom vars
 version:             1.0.0
 
 gems: [jekyll-paginate]
+exclude: [node_modules, gulpfile.js]
