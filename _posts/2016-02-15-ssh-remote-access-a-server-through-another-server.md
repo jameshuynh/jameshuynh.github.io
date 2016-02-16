@@ -5,7 +5,7 @@ comments: true
 excerpt_separator: <!-- more -->
 ---
 
-Recently, one of the app that I develop for our client would need to be hosted on a server that can only be accessed through another server. That has acaused me quite a few problems with ssh remote access and even deployment. In this article, I would like to share how I overcome the problem to easily remote access the server and deploy the app smoothly just like I have direct access to the server
+Recently, one of the app that I develop for our client would need to be hosted on a server that can only be accessed through another server. That has acaused me quite a few problems with ssh remote access and even deployment. In this article, I would like to share how I overcome the problem to easily remote access to the targeted server and deploy the app smoothly just like I have direct access to the targeted server.
 
 <!-- more -->
 
@@ -54,7 +54,7 @@ In order to achieve this way, you would need to ensure netcat (nc) is available 
 sudo apt-get install netcat
 {% endhighlight %}
 
-The second thing that you would need to ensure is having your public key (id_rsa.pub) deposit in ``~/.ssh/authorized_keys`` on both server A and server B
+The second thing that you would need to ensure is having your public key (id_rsa.pub) deposit in ``~/.ssh/authorized_keys`` on both server A and server B.
 
 Once you have done with those 2 prerequisites, edit your ``~/.ssh/config`` and add in the following entry
 
@@ -90,4 +90,4 @@ And I can run the following ssh command to login to server ``192.168.0.2``:
 ssh internal
 {% endhighlight %}
 
-With this, you can use capistrano and specify the server as ``internal`` and username as ``deployer``. Capistrano would deploy just like you have direct access to ``192.168.0.2``
+With this, you can use capistrano and specify the server as ``internal`` and username as ``deployer``. Capistrano would deploy just like you have direct access to ``192.168.0.2``.
