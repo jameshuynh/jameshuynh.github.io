@@ -71,7 +71,7 @@ Then you can direct access server B through the following ssh command:
 ssh <SOME_ALIAS_NAME>
 {% endhighlight %}
 
-__NOTE__: < ... > is a variable, you would need to supply a correct value
+__NOTE__: < ... > is a variable, you would need to supply a correct value.
 
 You will not need to support the port number and username as on the last ssh command, we already specify a port number and username on the target host in ``~/.ssh/config`` earlier.
 
