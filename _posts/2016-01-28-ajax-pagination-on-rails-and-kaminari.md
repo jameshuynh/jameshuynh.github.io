@@ -194,7 +194,9 @@ window.history.pushState(stateObj, "Page Title", "/new-url");
 
 This will cause the URL bar to display ``http://current-domain-name.com/new-url``, but won't cause the browser to load ``/new-url`` or even check that ``/new-url`` exists.
 
-##### 4. Finally, you can hook an event into pop state event, which is when the user clicks on Back / Forward button on the browser. This would help our application load approriate URL
+##### 4. Hooking an event into pop state event
+
+When user clicks on Back / Forward button on the browser, you can bind a havascript function as its callback. This would help our application load approriate URL
 
 
 {% highlight javascript %}

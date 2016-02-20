@@ -121,7 +121,7 @@ In addition, we would also need to add in an item unit view as following:
 
 ## 5. Add some basic stylesheet
 
-You can download the stylesheet from the following URL
+You can download the stylesheet from the URL: [http://bit.ly/1XCQM9w](http://bit.ly/1XCQM9w){:target="_blank"}
 
 ## 6. Generate an action cable channel
 
