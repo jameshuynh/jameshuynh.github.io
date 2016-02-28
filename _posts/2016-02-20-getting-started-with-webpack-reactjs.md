@@ -5,9 +5,9 @@ comments: true
 excerpt_separator: <!-- more -->
 ---
 
-ReactJS is a library created by Facebook. It is getting hot and more and more popular recently. One of the great companion of ReactJS is Webpack, which is tremendously help to speed up and ease the coding of ReactJS.
+ReactJS is a library created by Facebook. It is getting hot and more and more popular recently. One of the great companion of ReactJS is Webpack, which can tremendously help to speed up and ease the coding of ReactJS.
 
-In this article, I would like to introduce how we can get started with the combination of Webpack and ReactJS. This would cover some basic setup and how we can start using to develop a web app straight away.
+In this article, I would like to introduce how we can get started with the combination of Webpack and ReactJS. This would cover some basic setup and how we can start using ReactJS to develop a web app straight away.
 
 <!-- more -->
 
