@@ -3,6 +3,8 @@ layout: post
 title: Capistrano Deployment Behind a Proxy
 date: 2016-02-28
 comments: true
+categories: [capistrano, proxy, deployment]
+tags: [capistrano, proxy, deployment]
 excerpt_separator: <!-- more -->
 ---
 

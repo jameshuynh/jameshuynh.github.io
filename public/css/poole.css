@@ -478,8 +478,32 @@ section#search-results div.entries h3 {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 section#search-results div.entries article a {
   font-size: 20px;
+}
+
+ul.page-tags {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+ul.page-tags li {
+  display: inline;
+  margin-right: 10px;
+}
+
+ul.page-tags li a {
+  padding: 5px 10px 7px;
+  background: #888;
+  color: #fff !important;
+  border-radius: 5px;
+}
+
+ul.page-tags li a:hover {
+  text-decoration: none;
+  background: #555;
 }
 
 @media (max-width: 767px) {
