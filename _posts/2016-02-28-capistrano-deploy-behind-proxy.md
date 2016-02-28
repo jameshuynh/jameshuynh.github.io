@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Capistrano Deployment Behind a Proxy
+date: 2016-02-28
 comments: true
 excerpt_separator: <!-- more -->
 ---

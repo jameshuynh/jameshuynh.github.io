@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Getting Started with ReactJS
+date: 2016-02-20
 comments: true
 excerpt_separator: <!-- more -->
 ---

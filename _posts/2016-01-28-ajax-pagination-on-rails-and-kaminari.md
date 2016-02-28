@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Ajax Pagination on Rails and Kaminari
+date: 2016-01-28
 comments: true
 excerpt_separator: <!-- more -->
 ---

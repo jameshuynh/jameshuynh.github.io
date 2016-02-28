@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Save IRB and Rails Console history 
+title: Save IRB and Rails Console history
+date: 2016-01-29
 comments: true
 excerpt_separator: <!-- more -->
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Using cron job and whenever gem to run scheduled task in Rails
+date: 2016-02-16
 comments: true
 excerpt_separator: <!-- more -->
 ---

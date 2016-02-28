@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Rails 5 - Real time Web app with action cable
+date: 2016-02-12
 comments: true
 excerpt_separator: <!-- more -->
 ---

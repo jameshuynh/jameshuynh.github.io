@@ -1,6 +1,7 @@
 ---
 layout: post
 title: SSH Remote Access a server through another server
+date: 2016-02-15
 comments: true
 excerpt_separator: <!-- more -->
 ---

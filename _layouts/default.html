@@ -5,7 +5,7 @@
 
   <body>
 
-    {% include sidebar.html %}
+   {% include sidebar.html %}
 
     <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
          content to avoid any CSS collisions with our real content. -->
@@ -15,16 +15,46 @@
           <h3 class="masthead-title">
             <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
             <small>{{ site.tagline }}</small>
+            <div id="search">
+              <form action="/search" method="get">
+                <input type="text" id="search-query" name="q" placeholder="Search" autocomplete="off">
+              </form>
+            </div>
           </h3>
         </div>
       </div>
 
       <div class="container content">
+        <div id="mobile_search">
+          <form action="/search" method="get">
+            <input type="text" id="mobile-search-query" name="q" placeholder="Search" autocomplete="off">
+          </form>
+        </div>
+
+        <section id="search-results" style="display: none;">
+          <p>Search results</p>
+          <div class="entries">
+          </div>
+        </section>
+
         {{ content }}
       </div>
     </div>
 
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    {% raw %}
+    <script id="search-results-template" type="text/mustache">
+      {{#entries}}
+        <article>
+          <h3>
+            {{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}}
+            <a href="{{url}}">{{title}}</a>
+          </h3>
+        </article>
+      {{/entries}}
+    </script>
+    {% endraw %}
 
     <script>
       (function(document) {
@@ -41,6 +71,22 @@
 
           checkbox.checked = false;
         }, false);
+
+        $('#search-query').lunrSearch({
+          indexUrl: '/js/index.json',   // Url for the .json file containing search index data
+          results : '#search-results',  // selector for containing search results element
+          entries : '.entries',         // selector for search entries containing element (contained within results above)
+          template: '#search-results-template'  // selector for Mustache.js template
+        });
+
+        $('#mobile-search-query').lunrSearch({
+          indexUrl: '/js/index.json',   // Url for the .json file containing search index data
+          results : '#search-results',  // selector for containing search results element
+          entries : '.entries',         // selector for search entries containing element (contained within results above)
+          template: '#search-results-template'  // selector for Mustache.js template
+        });
+
+
       })(document);
     </script>
     {% include google_analytics.html %}
