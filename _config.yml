@@ -9,7 +9,7 @@ tagline:             'My little tech blog'
 description:         'This is the blog that I always want to devote my time to make it better and informative over time. This also serves as my reference point when in need'
 url:                 http://jameshuynh.com
 baseurl:             ''
-paginate:            5
+paginate:            10
 
 # About/contact
 author:
