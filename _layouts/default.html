@@ -48,8 +48,8 @@
       {{#entries}}
         <article>
           <h3>
-            {{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}}
             <a href="{{url}}">{{title}}</a>
+            <span style='font-size: 16px; color: #999;'>{{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}}</span>
           </h3>
         </article>
       {{/entries}}
@@ -73,14 +73,14 @@
         }, false);
 
         $('#search-query').lunrSearch({
-          indexUrl: '/public/js/index.json',   // Url for the .json file containing search index data
+          indexUrl: '/js/index.json',   // Url for the .json file containing search index data
           results : '#search-results',  // selector for containing search results element
           entries : '.entries',         // selector for search entries containing element (contained within results above)
           template: '#search-results-template'  // selector for Mustache.js template
         });
 
         $('#mobile-search-query').lunrSearch({
-          indexUrl: '/public/js/index.json',   // Url for the .json file containing search index data
+          indexUrl: '/js/index.json',   // Url for the .json file containing search index data
           results : '#search-results',  // selector for containing search results element
           entries : '.entries',         // selector for search entries containing element (contained within results above)
           template: '#search-results-template'  // selector for Mustache.js template
