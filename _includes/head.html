@@ -5,12 +5,24 @@
 
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-  <script src="{{ site.base_url }}/public/js/search.min.js" type="text/javascript" charset="utf-8"></script>
+  <meta name="Keywords" content="ruby,ruby on rails,ios,mobile development,android,react,angular,frameworks">
+  <meta name="Description" content="{{ site.title }}">
+  <meta name="author" content="James Huynh">
+  <meta name="Copyright" content="James Huynh 2016">
+  <meta name="Robots" content="index, follow">
+
+  <meta name="og:site_name" content="{{ site.title }}">
+  <meta name="og:url" content="http://jameshuynh.com">
+  <meta name="og:description" content="{{ site.tagline }}">
+  <meta name="og:image" content="https://avatars2.githubusercontent.com/u/29207?v=3&s=160">
+
   <title>
     {% if page.title == "Home" %}
       {{ site.title }} &middot; {{ site.tagline }}
+      <meta name="og:title" content="{{ site.tagline }}">
     {% else %}
       {{ page.title }} &middot; {{ site.title }}
+      <meta name="og:title" content="{{ site.title }}">
     {% endif %}
   </title>
 
