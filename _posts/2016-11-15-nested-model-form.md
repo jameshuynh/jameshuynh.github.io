@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Nested Model Form
-date: 2016-11-15
+date: 2016-11-21
 comments: true
 categories: [rails, form]
 tags: [rails, form]
