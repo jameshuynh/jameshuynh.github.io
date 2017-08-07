@@ -246,6 +246,8 @@ a.sidebar-nav-item:focus {
 .sidebar-toggle:before {
   display: inline-block;
   width: 1rem;
+  position: relative;
+  top: 2px;
   height: .75rem;
   content: "";
   background-image: -webkit-linear-gradient(
