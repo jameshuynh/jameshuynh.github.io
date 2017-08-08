@@ -5,7 +5,7 @@ title: About
 
 ![My Avatar](https://avatars2.githubusercontent.com/u/29207?v=3&s=120 "My Avatar")
 <p class="message">
-  Hey there! I am James Huynh from Singapore.
+  Hey there! I am James Huynh. I am a senior Ruby on Rails developer in Singapore.
   I love to share my knowledge as well as love to learn from other people.
 </p>
 
