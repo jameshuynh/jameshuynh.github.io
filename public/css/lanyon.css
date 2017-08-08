@@ -128,6 +128,8 @@ h6 {
 .masthead div#search input {
   background: #fff;
   transition: all 0.4s;
+  -webkit-appearance: none;
+  box-shadow: none !important;
   border: 1px solid #ccc;
 }
 
@@ -241,13 +243,16 @@ a.sidebar-nav-item:focus {
   background-color: #fff;
   border-radius: .25rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
 }
 
 .sidebar-toggle:before {
   display: inline-block;
   width: 1rem;
   position: relative;
-  top: 2px;
   height: .75rem;
   content: "";
   background-image: -webkit-linear-gradient(

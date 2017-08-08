@@ -463,6 +463,14 @@ div#mobile_search input {
   border: 1px solid #ccc;
   width: 100%;
   font-size: 20px;
+  appearance: none;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  transition: all 0.4s;
+}
+
+div#mobile_search input:focus {
+  border-color: #aaa;
 }
 
 section#search-results > p {

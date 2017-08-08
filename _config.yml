@@ -24,6 +24,6 @@ version:             1.0.0
 lunr_search:
   js_dir: "../public/js"
 
-gems: [jekyll-paginate, jekyll-lunr-js-search, jekyll-sitemap]
-# gems: [jekyll-paginate, jekyll-sitemap]
+# gems: [jekyll-paginate, jekyll-lunr-js-search, jekyll-sitemap]
+gems: [jekyll-paginate, jekyll-sitemap]
 exclude: [node_modules, gulpfile.js]
