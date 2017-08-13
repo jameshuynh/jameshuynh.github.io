@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to effectively cache json in API Rails app.
+title: How to effectively cache json in API Rails app
 date: 2017-08-13
 comments: true
 categories: [cache, json, rails]
