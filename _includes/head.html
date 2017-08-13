@@ -19,14 +19,13 @@
   <meta name="google-site-verification" content="aO8KM0Tw5rPoSJ84rx4gt5X2u4fcjy4YAbqj5GPRRGI" />
   <title>
     {% if page.title == "Home" %}
-      {{ site.title }} &middot; {{ site.tagline }}
-      <meta name="og:title" content="{{ site.tagline }}">
+      {{ site.title }}
     {% else %}
-      {{ page.title }} &middot; {{ site.title }}
-      <meta name="og:title" content="{{ site.title }}">
+      {{ page.title }}
     {% endif %}
   </title>
 
+  <meta name="og:title" content="{{ site.tagline }}">
   <!-- CSS -->
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/poole.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/syntax.css">
