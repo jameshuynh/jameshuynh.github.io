@@ -155,5 +155,5 @@ After this, you can run both Rails app and React App. React App would be able to
 
 As usual, the source file for this article is made publicly available on the following URLs:
 
-[https://github.com/jameshuynh/blog-codes/tree/master/reactjs-nested-form](https://github.com/jameshuynh/blog-codes/tree/master/reactjs-nested-form)
+[https://github.com/jameshuynh/blog-codes/tree/master/xdomain](https://github.com/jameshuynh/blog-codes/tree/master/xdomain)
 
