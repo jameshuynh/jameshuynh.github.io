@@ -89,11 +89,13 @@ We would need to modify ``config/deploy.rb`` to add additional tasks to indicate
 
 
 ```ruby
-require 'capistrano/nvm'
+
 set :application, 'nextjs-deployment' # change to your app name
 set :deploy_user, 'ubuntu' # change to your server user
 set :keep_releases, 5
-set :repo_url, 'git@github.com:jameshuynh/nextjs-deployment.git' # change to your git address
+
+# change to your git address
+set :repo_url, 'git@github.com:jameshuynh/nextjs-deployment.git'
 
 # for NVM
 set :nvm_type, :user
@@ -115,8 +117,9 @@ namespace :pm2 do
       within current_path do
         execute :npm, 'run build'
       end
-      within current_path do
-        execute :pm2, "start #{shared_path}/app.json"
+
+      within shared_path do
+        execute :pm2, 'start app.json'
       end
     end
   end
@@ -126,6 +129,7 @@ namespace :pm2 do
       within current_path do
         execute :npm, 'run build'
       end
+
       within shared_path do
         execute :pm2, 'reload app.json'
       end
@@ -134,7 +138,7 @@ namespace :pm2 do
 
   task :stop do
     on roles(:app) do
-      within current_path do
+      within shared_path do
         execute :pm2, 'stop app.json'
       end
     end
@@ -144,13 +148,6 @@ end
 namespace :deploy do
   after 'deploy:publishing', 'deploy:yarn_install'
   after 'deploy:publishing', 'deploy:restart'
-
-  task :initial do
-    on roles(:app) do
-      before 'deploy:restart', 'pm2:start'
-      invoke 'deploy'
-    end
-  end
 
   task :yarn_install do
     on roles(:app) do
