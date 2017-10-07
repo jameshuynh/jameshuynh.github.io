@@ -372,13 +372,13 @@ For my case, it came out with the following:
 sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v8.6.0/bin /home/ubuntu/.nvm/versions/node/v8.6.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
 ```
 
-I just then need to copy the third line of the command:
+I just then need to copy the third line of the above which is:
 
 ```bash
 sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v8.6.0/bin /home/ubuntu/.nvm/versions/node/v8.6.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
 ```
-sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v8.6.0/bin /home/ubuntu/.nvm/versions/node/v8.6.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
-nd run it, pm2 would then take care of the auto restart after the server boot up. I tried to reboot the server after this and pm2 got auto started right after the server boot up.
+
+and run it. PM2 would then take care of the auto restart after the server boot up. I rebooted the server after this and PM2 got auto started right after the server boot up. Sweet.
 
 ## 11. Add monit to help to monitor pm2
 
