@@ -1,4 +1,4 @@
----
+-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"--
 layout: post
 title: Deploy NextJS app with Capistrano 3, NVM and PM2 on Ubuntu server
 date: 07-10-2017
@@ -29,22 +29,7 @@ After that you can run bundle install command to install the capistrano gems and
 bundle install
 ```
 
-## 2. Add pm2-next task to package.json
-
-Add the ``pm2-next`` line inside your ``scripts`` part in ``package.json`` file, like below. We will revisit this later on when we need to run this task:
-
-```js
-{
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "pm2-next": "next build && pm2 start app.json"
-  },
-}
-```
-
-## 3. Setup capistrano
+## 2. Setup capistrano
 
 To setup capistrano on the current project, run this command:
 
@@ -62,7 +47,7 @@ Capfile
 
 You can see that it also creates ``config/deploy/staging.rb`` but let's skip it for now as we can simply duplicate the ``config/deploy/production.rb`` and change the IP addresses and the domain name of the server.
 
-## 4. Modify ``Capfile``
+## 3. Modify ``Capfile``
 
 You can change your ``Capfile`` to have the following code. Note that, I have cleaned up all the commented code in the original file:
 
@@ -76,7 +61,7 @@ install_plugin Capistrano::SCM::Git
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
 ```
 
-## 5. Modify ``config/deploy/production.rb``
+## 4. Modify ``config/deploy/production.rb``
 
 This is required as we would need to indicate what are the IP addresses of the servers that we would like to deploy the app to and the folder path located on the servers. You can simply copy the following code inside and make a modification from there:
 
@@ -98,7 +83,7 @@ These are things that you would need to change in the above code are:
 - ``set :server_name, 'nextjs-deployment.jameshuynh.com'``: You would need to change the domain name of the app that you are intending to deploy (instead of using ``nextjs-deployment.jameshuynh.com``).
 - ``server 'xxx.xxx.xxx.xxx', user: 'ubuntu', roles: 'app', primary: true``: You would need to change the server IP (instead of using ``xxx.xxx.xxx.xxx``) and the approriate user (instead of ``ubuntu``).
 
-## 6. Modify ``config/deploy.rb``
+## 5. Modify ``config/deploy.rb``
 
 We would need to modify ``config/deploy.rb`` to add additional tasks to indicate what things that need to start/restart during the deployment:
 
@@ -358,7 +343,7 @@ Then try to visit your site from browser to see if the page comes out correctly.
 
 ## 10. Make pm2 auto start at start up
 
-From the server, simply trigger the command below to get the command that you can run to make pm2 auto start at start up:
+From the server, simply trigger the command below to get the command that you can run to make PM2 auto start at start up:
 
 ```bash
 pm2 startup
@@ -380,7 +365,7 @@ sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v8.6.0/bin /home/ubuntu/.nvm
 
 and run it. PM2 would then take care of the auto restart after the server boot up. I rebooted the server after this and PM2 got auto started right after the server boot up. Sweet.
 
-## 11. Add monit to help to monitor pm2
+## 11. Add monit to help to monitor PM2
 
 From the server, you can install monit by running the following command:
 
