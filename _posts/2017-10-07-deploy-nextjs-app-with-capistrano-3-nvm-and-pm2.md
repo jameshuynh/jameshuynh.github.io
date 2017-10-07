@@ -21,6 +21,7 @@ We already have a NextJS project setup and the first thing to do now is create a
 source 'https://rubygems.org'
 
 gem 'capistrano', '~> 3.9.1'
+gem 'capistrano-nvm', '~> 0.0.7'
 ```
 
 After that you can run bundle install command to install the capistrano gems and capistrano Gem
