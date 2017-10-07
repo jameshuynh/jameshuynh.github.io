@@ -1,3 +1,4 @@
+---
 layout: post
 title: Deploy NextJS app with Capistrano 3, NVM and PM2 on Ubuntu server
 date: 07-10-2017
