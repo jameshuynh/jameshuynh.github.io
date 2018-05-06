@@ -612,7 +612,7 @@ This piece of code is trying to render the tasks form so that multiple task form
 
 ```js
 //...
-
+{% raw %}
 renderTasksForm() {
   let counter = 0;
   return this.state.project.tasks_attributes.map((task, index) => {
@@ -652,6 +652,7 @@ renderTasksForm() {
 }
 
 // ...
+{% endraw %}
 ```
 
 This function loops through the ``task_attributes`` in the main state and render out the task form. Each task form consists of an input field for task's title and a button to help to delete the task. If the task has the field ``_destroy`` set to false, it will not be rendered out. This field would be marked as ``true`` when we hit the delete button on the task.

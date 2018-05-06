@@ -284,6 +284,7 @@ Next, let's create a file to list down all the available books.
 To do that, create the file ``src/Book/Index/index.js`` with the following content:
 
 ```js
+{% raw %}
 import React, { Component } from 'react';
 import axiosClient from '../../axiosClient';
 
@@ -378,6 +379,7 @@ class BookIndex extends Component {
 }
 
 export default BookIndex;
+{% endraw %}
 ```
 
 This ``index.js`` file is used to render the list of books and call the API ``/books.json`` to get the data from server to display. It also handles the edit and remove action in ``handleEdit`` and ``handleRemove`` callback.
@@ -631,6 +633,7 @@ renderBookDescriptionInlineError() {
 The core of this article is the function to render out the upload covers button as shown below:
 
 ```js
+{% raw %}
 // ...
 getNumberOfSelectedFiles() {
   return this.state.selectedBookCoverFiles.filter(el => {
@@ -694,6 +697,8 @@ handleBookCoversChange() {
   );
 }
 // ...
+
+{% endraw %}
 ```
 
 Few things to be noted in the function above:
@@ -718,6 +723,7 @@ Few things to be noted in the function above:
 Next would be the function to render what user has chosen to upload:
 
 ```js
+{% raw %}
 // ...
 renderSelectedBookCoverFiles() {
   let fileDOMs = this.state.selectedBookCoverFiles.map((el, index) => {
@@ -753,6 +759,7 @@ renderSelectedBookCoverFiles() {
   );
 }
 // ...
+{% endraw %}
 ```
 
 As shown in the above function, we will render out the photo if the photo is marked as ``_destroy``. Otherwise, it would be shown with an image, a cross icon at the top right corner to handle the deletion and the file name.
@@ -883,6 +890,7 @@ For the failure case (status code ``422`` - Rails ROLLBACK) we would extract out
 We would also need to add in the function to display the progress bar when uploading files:
 
 ```js
+{% raw %}
 // ...
 renderUploadFormProgress() {
   if (this.state.isSubmittingForm === false) {
@@ -907,6 +915,7 @@ renderUploadFormProgress() {
   );
 }
 // ...
+{% endraw %}
 ```
 
 To make the the style looks nice, I add the style file ``src/Book/Form/Index.css`` with the content below:
