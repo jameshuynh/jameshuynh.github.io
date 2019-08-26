@@ -1,0 +1,1 @@
+wkhtmltopdf --margin-top 0 --margin-bottom 0 --margin-left 0 --margin-right 0  --viewport-size 960x13000 --zoom 4 --user-style-sheet pdf_style.css index.html cv.pdf
